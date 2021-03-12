@@ -10,17 +10,32 @@
 2021/3/12 10:32 下午   Liutaou      1.0         None
 '''
 
+
 # import lib
 
 def bubble_sort_v1(arr=[]):
-    for i in range(len(arr)-1):
-        for j in range(len(arr)-i-1):
-            if arr[j] > arr[j+1]:
+    for i in range(len(arr) - 1):
+        for j in range(len(arr) - i - 1):
+            if arr[j] > arr[j + 1]:
                 tmp = arr[j]
-                arr[j] = arr[j+1]
-                arr[j+1] = tmp
+                arr[j] = arr[j + 1]
+                arr[j + 1] = tmp
 
 
-mylist = [45,4,7,44,3,7,8,2,9,13,6,10,34]
-bubble_sort_v1(mylist)
+def bubble_sort_v2(arr=[]):
+    for i in range(len(arr) - 1):
+        is_sort = True
+        for j in range(len(arr) - i - 1):
+            if arr[j] > arr[j + 1]:
+                tmp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = tmp
+                is_sort = False
+
+        if is_sort:
+            break
+
+
+mylist = [45, 4, 7, 44, 3, 7, 8, 2, 9, 13, 6, 10, 34]
+bubble_sort_v2(mylist)
 print(mylist)
