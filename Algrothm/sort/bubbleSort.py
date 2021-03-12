@@ -11,7 +11,6 @@
 '''
 
 
-# import lib
 
 def bubble_sort_v1(arr=[]):
     for i in range(len(arr) - 1):
@@ -36,6 +35,24 @@ def bubble_sort_v2(arr=[]):
             break
 
 
+def bubble_sort_v3(arr=[]):
+    for i in range(len(arr)):
+        last_index = 0
+        sort_border = len(arr) - 1
+        is_sort = True
+        for j in range(sort_border):
+            if arr[j] > arr[j + 1]:
+                tmp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = tmp
+                last_index = j
+                is_sort = False
+
+        sort_border = last_index
+        if is_sort:
+            break
+
+
 mylist = [45, 4, 7, 44, 3, 7, 8, 2, 9, 13, 6, 10, 34]
-bubble_sort_v2(mylist)
+bubble_sort_v3(mylist)
 print(mylist)
