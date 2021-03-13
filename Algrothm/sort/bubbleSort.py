@@ -36,9 +36,9 @@ def bubble_sort_v2(arr=[]):
 
 
 def bubble_sort_v3(arr=[]):
+    last_index = 0
+    sort_border = len(arr) - 1
     for i in range(len(arr)):
-        last_index = 0
-        sort_border = len(arr) - 1
         is_sort = True
         for j in range(sort_border):
             if arr[j] > arr[j + 1]:
