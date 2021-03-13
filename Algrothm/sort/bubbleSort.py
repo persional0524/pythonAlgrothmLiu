@@ -55,7 +55,7 @@ def bubble_sort_v3(arr=[]):
 def bubble_sort_v4(arr=[]):
     for i in range(len(arr) // 2):
         is_sort = True  # 如果没有发生交换，则说明是有序的，否则，需要重新遍历一次
-        #奇数轮，从左到右比较交换
+        # 奇数轮，从左到右比较交换
         for j in range(i, len(arr) - i - 1):
             if arr[j] > arr[j + 1]:
                 tmp = arr[j]
@@ -65,9 +65,9 @@ def bubble_sort_v4(arr=[]):
 
         if is_sort:
             break
-        #偶数轮，之前重新标记
+        # 偶数轮，之前重新标记
         is_sort = True
-        #偶数轮，从右到左比较交换
+        # 偶数轮，从右到左比较交换
         for j in range(len(arr) - i - 1, i, -1):
             print(j)
             if arr[j] < arr[j - 1]:
