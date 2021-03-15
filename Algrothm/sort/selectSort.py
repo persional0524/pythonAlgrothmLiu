@@ -22,6 +22,30 @@ def select_Sort_v1(arr=[]):
                 arr[min] = tmp
 
 
+def select_Sort_v2(arr=[]):
+    for i in range(len(arr)):
+        min = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] < arr[min]:
+                min = j
+                arr[i], arr[j] = arr[j], arr[i]
+
+
+def select_Sort_v3(arr):
+    if arr is not None:
+        if arr == 1:
+            pass
+        else:
+            for i in range(len(arr)):
+                min = i
+                for j in range(i + 1, len(arr)):
+                    if arr[j] < arr[min]:
+                        min = j
+                        arr[i], arr[j] = arr[j], arr[i]
+
+
 mylist = list([4, 4, 6, 5, 3, 2, 8, 1, 7, 5, 6, 0, 10, 11, 23])
-select_Sort_v1(mylist)
+# select_Sort_v1(mylist)
+#select_Sort_v2(mylist)
+select_Sort_v3(mylist)
 print(mylist)
