@@ -24,3 +24,31 @@ Output: 2
 Explanation: The square root of 8 is 2.82842..., and since
              the decimal part is truncated, 2 is returned.
 """
+
+
+def mySqrt_v1(target):  # 参数为目标的值，和下标没有什么太大关系
+
+    """
+    :type x: int
+    :rtype: int
+    """
+
+    left, right = 0, target
+    mid = right // 2
+    while left <= right:
+        if mid * mid == target:
+            return mid
+        elif mid * mid > target:
+            right = mid - 1
+        else:
+            left = mid + 1
+        mid = (left + right) // 2
+    return mid
+
+
+def mySqrt_v2(target):
+    return (target ** 0.5)
+
+
+print(mySqrt_v1(16))
+print(mySqrt_v2(16))
