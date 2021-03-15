@@ -47,7 +47,7 @@ def mySqrt_v1(target):  # 参数为目标的值，和下标没有什么太大关
 
 
 def mySqrt_v2(target):
-    return (target ** 0.5)
+    return target ** 0.5
 
 
 print(mySqrt_v1(16))
