@@ -29,7 +29,7 @@ Explanation: The square root of 8 is 2.82842..., and since
 def mySqrt_v1(target):  # 参数为目标的值，和下标没有什么太大关系
 
     """
-    :type x: int
+    :param target:
     :rtype: int
     """
 
