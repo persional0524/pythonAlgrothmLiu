@@ -1,7 +1,14 @@
-# -*- coding:utf-8 -*-
-# @Time : 2021/3/13 21:19
-# @Author: liutaou
-# @File : readExecl.py
+#!/usr/bin/python3
+# -*- encoding: utf-8 -*-
+"""
+@File    :   mySqrt.py
+@Contact :   liutao0705@live.com
+@License :   (C)Copyright 2021-2022, Liugroup-NLPR-CASIA
+
+@Modify Time      @Author    @Version    @Desciption
+------------      -------    --------    -----------
+2021/3/13 21:19 下午   Lita     1.0         None
+"""
 import pandas as pd
 from pandas import DataFrame
 #读
