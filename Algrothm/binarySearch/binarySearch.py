@@ -11,30 +11,16 @@
 2021/3/15 12:25 下午   Lita      1.0         None
 """
 
-
-# import lib
-
-def binarySearch_v1(arr, target):
-    if len(arr) == 0:
-        return -1
-
-    left, right = 0, len(arr) - 1
-    while left <= right:
-        mid = (left + right) // 2
-        if target == arr[mid]:
-            print("target = "+str(target))
-            print("mid = "+str(mid))
-            return mid
-        elif target < arr[mid]:
-            right = mid - 1
-        else:
-            left = mid + 1
+"""
+模版-1
+初始条件：left = 0, right = length-1
+终止：left > right
+向左查找：right = mid-1
+向右查找：left = mid+1
+"""
 
 
-    return -1
-
-
-def binarySearch_v2(nums, target):
+def binarySearch_v1(nums, target):
     """
     :type nums: List[int]
     :type target: int
@@ -47,8 +33,8 @@ def binarySearch_v2(nums, target):
     while left <= right:
         mid = (left + right) // 2
         if nums[mid] == target:
-            print("target = "+str(target))
-            print("mid = "+str(mid))
+            print("target = " + str(target))
+            print("mid = " + str(mid))
             return mid
         elif nums[mid] < target:
             left = mid + 1
@@ -59,6 +45,14 @@ def binarySearch_v2(nums, target):
     return -1
 
 
-#binarySearch_v1([4,5, 6, 7, 8, 10, 11, 23], 6)
+"""
+模版-2
+初始条件：left = 0, right = length-1
+终止：left > right
+向左查找：right = mid-1
+向右查找：left = mid+1
+"""
+
+# def binarySearch_v2(nums, target):
+
 binarySearch_v1([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6)
-#binarySearch_v2([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6)
