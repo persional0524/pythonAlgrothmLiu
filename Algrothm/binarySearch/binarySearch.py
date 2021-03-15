@@ -19,15 +19,17 @@ def binarySearch_v1(arr, target):
         return -1
 
     left, right = 0, len(arr) - 1
-
-    while left < right:
+    while left <= right:
         mid = (left + right) // 2
         if target == arr[mid]:
-            return target
+            print("target = "+str(target))
+            print("mid = "+str(mid))
+            return mid
         elif target < arr[mid]:
-            right == mid - 1
+            right = mid - 1
         else:
-            left == mid + 1
+            left = mid + 1
+
 
     return -1
 
@@ -46,6 +48,7 @@ def binarySearch_v2(nums, target):
         mid = (left + right) // 2
         if nums[mid] == target:
             print("target = "+str(target))
+            print("mid = "+str(mid))
             return mid
         elif nums[mid] < target:
             left = mid + 1
@@ -56,5 +59,6 @@ def binarySearch_v2(nums, target):
     return -1
 
 
-# binarySearch_v1([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6)
-binarySearch_v2([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6)
+#binarySearch_v1([4,5, 6, 7, 8, 10, 11, 23], 6)
+binarySearch_v1([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6)
+#binarySearch_v2([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6)
