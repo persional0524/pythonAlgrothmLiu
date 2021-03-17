@@ -77,5 +77,10 @@ def binarySearch_v2(nums, target):
     return -1
 
 
+"""
+模版-3
+
+"""
+
 binarySearch_v1([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6)
 print(binarySearch_v2([0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 23], 6))
