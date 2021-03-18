@@ -34,5 +34,5 @@ def count_sort_v1(arr=[]):
 
 mylist = list([4, 4, 6, 5, 3, 2, 8, 1, 7, 5, 6, 0, 10, 11, 23])
 
-count_sort_v1(mylist)
+#count_sort_v1(mylist)
 print(count_sort_v1(mylist))
