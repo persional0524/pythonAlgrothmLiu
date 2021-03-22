@@ -48,7 +48,7 @@ def count_sort_v2(arr=[]):
         count_arr[arr[i] - min_v] += 1
         print(count_arr)
     print("#" * 37)
-    for i in range(1, len(arr)):
+    for i in range(1, len(count_arr)):
         count_arr[i] += count_arr[i - 1]
         print(count_arr)
     sort_arr = [0] * len(arr)
