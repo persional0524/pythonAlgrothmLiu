@@ -32,7 +32,35 @@ def count_sort_v1(arr=[]):
     return sort_arr
 
 
-mylist = list([4, 4, 6, 5, 3, 2, 8, 1, 7, 5, 6, 0, 10, 11, 23])
+def count_sort_v2(arr=[]):
+    max_v = arr[0]
+    min_v = arr[0]
+    for i in range(len(arr) - 1):
+        if arr[i] > max_v:
+            max_v = arr[i]
+            print("max_v=" + str(max_v))
+        if arr[i] < min_v:
+            min_v = arr[i]
+            print("min_v=" + str(min_v))
+    d = max_v - min_v
+    count_arr = [0] * (d + 1)
+    for i in range(len(arr)):
+        count_arr[arr[i] - min_v] += 1
+        print(count_arr)
+    print("#" * 37)
+    for i in range(1, len(arr)):
+        count_arr[i] += count_arr[i - 1]
+        print(count_arr)
+    sort_arr = [0] * len(arr)
+    for i in range(len(arr) - 1, -1, -1):
+        sort_arr[count_arr[arr[i] - min_v] - 1] = arr[i]
+        count_arr[arr[i] - min_v] -= 1
+    return sort_arr
 
-#count_sort_v1(mylist)
-print(count_sort_v1(mylist))
+
+mylist = list([95, 94, 91, 98, 99, 90, 99, 93, 91, 92])
+
+# count_sort_v1(mylist)
+#count_sort_v2(mylist)
+# print(count_sort_v1(mylist))
+print(count_sort_v2(mylist))
