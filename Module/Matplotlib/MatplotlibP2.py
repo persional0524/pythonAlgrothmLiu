@@ -14,6 +14,11 @@ from matplotlib import pyplot as plt
 from matplotlib import font_manager
 import numpy as np
 
+"""
+以折线的上升或下降来表示统计数量的增减变化的统计图
+特点：能够显示数据的变化趋势，反映事物的变化情况。
+"""
+
 
 def plot_v1():
     # 折线图（x，y）
