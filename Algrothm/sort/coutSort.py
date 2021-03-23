@@ -33,6 +33,7 @@ def count_sort_v1(arr=[]):
 
 
 def count_sort_v2(arr=[]):
+    # 1.得到数列最大值最小值，并算出差值d
     max_v = arr[0]
     min_v = arr[0]
     for i in range(len(arr) - 1):
@@ -43,14 +44,17 @@ def count_sort_v2(arr=[]):
             min_v = arr[i]
             print("min_v=" + str(min_v))
     d = max_v - min_v
+    # 2.创建统计数组并统计对应元素个数
     count_arr = [0] * (d + 1)
     for i in range(len(arr)):
         count_arr[arr[i] - min_v] += 1
         print(count_arr)
     print("#" * 37)
+    # 3.统计数组的变形，后面的元素等于前面的元素之和
     for i in range(1, len(count_arr)):
         count_arr[i] += count_arr[i - 1]
         print(count_arr)
+    # 4.倒序遍历原始数列，从统计数组中找到正确的位置，输出到结果数组
     sort_arr = [0] * len(arr)
     for i in range(len(arr) - 1, -1, -1):
         sort_arr[count_arr[arr[i] - min_v] - 1] = arr[i]
