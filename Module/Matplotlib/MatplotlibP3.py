@@ -12,6 +12,10 @@
 
 import matplotlib.pyplot as plt
 
+"""
+饼图：用于表示不同分类的占比情况，通过弧度大小来对比各类数据。
+特点：分类数据的占比情况统计（分类）
+"""
 # 饼图
 labels_value = ['walking', 'driving', 'sleeping', 'relaxing']
 slices = [2, 1, 7, 14]
