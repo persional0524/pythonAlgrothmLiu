@@ -9,7 +9,6 @@
 ------------      -------    --------    -----------
 2021/3/22 12:58 下午   Lita       1.0         None
 """
-import numpy
 import pandas as pd
 from matplotlib import pyplot as plt
 
@@ -124,18 +123,40 @@ def total_v1(file):
 def exercise_v1(file):
     car = pd.read_excel(file, header=0, sheet_name='销售数据')
     print(car)
-    #result = car[(car['厂商'] == '北京奔驰') & (car['销售月份'] == '201901')][['车型', '销量']]
     result = car[(car['厂商'] == '北京奔驰') & (car['销售月份'] == 201901)][['车型', '销量']]
     print(result)
     plt.bar(result['车型'], result['销量'])
     plt.show()
 
 
-#def export_exercise_v1(file):
+def groupBy_count_v1():
+    class1_stuents = pd.DataFrame([[1, 'James', 'male', 99, 100, 85],
+                                   [2, 'Betty', 'female', 99, 87, 85],
+                                   [3, 'Jack', 'male', 100, 87, 85],
+                                   [4, 'Lily', 'female', 82, 87, 85],
+                                   [5, 'Bill', 'male', 88, 87, 85]],
+                                  columns=['id', 'name', 'gender', 'math', 'english', 'chinese']
+                                  )
+
+    print(class1_stuents)
+    student_group = class1_stuents.groupby('gender')
+    for i in student_group:
+        print('i=' + str(i))
+    print(class1_stuents.groupby('gender').agg('mean'))
+    print(class1_stuents.groupby('gender').mean)
 
 
+def export_exercise_v1(file):
+    class1_stuents = pd.DataFrame([[1, 'James', 'male', 99, 100, 85],
+                                   [2, 'Betty', 'female', 99, 87, 85],
+                                   [3, 'Jack', 'male', 100, 87, 85],
+                                   [4, 'Lily', 'female', 82, 87, 85],
+                                   [5, 'Bill', 'male', 88, 87, 85]],
+                                  columns=['id', 'name', 'gender', 'math', 'english', 'chinese']
+                                  )
 
-
+    print(class1_stuents)
+    class1_stuents.to_csv('/Users/liutao/PycharmProjects/pythonAlgrothmLiu/DateFile/students_data.csv', index=False)
 
 series()
 DDataF_v1()
@@ -149,4 +170,6 @@ file_2 = '/Users/liutao/PycharmProjects/pythonAlgrothmLiu/DateFile/热销乘用�
 # Data_filtrateCsv_v1(file_1)
 # Data_filtrateCsv_v2(file_1)
 # total_v1(file_1)
-exercise_v1(file_2)
+# exercise_v1(file_2)
+# groupBy_count_v1()
+export_exercise_v1(file_1)
