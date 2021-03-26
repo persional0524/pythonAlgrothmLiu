@@ -17,6 +17,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/Algrothm/sort/bucketSort.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/Algrothm/sort/quickSort.py">
           <value>
             <Attribute>
@@ -70,6 +77,13 @@
           <value>
             <Attribute>
               <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/Module/Turtle/turtleTest.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
             </Attribute>
           </value>
         </entry>

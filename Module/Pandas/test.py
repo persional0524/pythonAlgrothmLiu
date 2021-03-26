@@ -158,12 +158,104 @@ def export_exercise_v1(file):
     print(class1_stuents)
     class1_stuents.to_csv('/Users/liutao/PycharmProjects/pythonAlgrothmLiu/DateFile/students_data.csv', index=False)
 
+
+def Data_filtrate_sort_v1():
+    class1_stuents = pd.DataFrame([[1, 'James', 'male', 99, 100, 85],
+                                   [2, 'Betty', 'female', 99, 87, 85],
+                                   [3, 'Jack', 'male', 100, 87, 85],
+                                   [4, 'Lily', 'female', 82, 87, 85],
+                                   [5, 'Bill', 'male', 88, 87, 85]],
+                                  columns=['id', 'name', 'gender', 'math', 'english', 'chinese']
+                                  )
+    # 数学从大到小，英语从小到大
+    sort_result = class1_stuents.sort_values(by=['math', 'english'], ascending=[False, True])
+    print(sort_result)
+
+
+def TaBao_pv_count_v1(file):
+    taobao_date = pd.read_csv(file, header=0)
+    print(taobao_date.head(10))
+    # behavior_type 1:浏览 2:购物车 3:收藏 4:购买
+    # PV page view，每一天的用户访问量
+    pv_daily = taobao_date[['date', 'user_id']].groupby('date').agg('count')
+    # print(pv_daily)
+    plt.plot(pv_daily.index, pv_daily['user_id'])
+    plt.xticks(rotation=45)
+    plt.show()
+
+
+def TaBao_pv_count_v2(file):
+    taobao_date = pd.read_csv(file, header=0)
+    print(taobao_date.head(10))
+    # behavior_type 1:浏览 2:购物车 3:收藏 4:购买
+
+    # 一天中，不同时间段，用户行为的数量
+    pv_daily = taobao_date[['hour', 'user_id']].groupby('hour').agg('count')
+    print(pv_daily)
+    plt.plot(pv_daily.index, pv_daily['user_id'])
+    plt.xticks(rotation=45)
+    plt.show()
+
+
+def TaBao_pv_count_v3(file):
+    taobao_data = pd.read_csv(file, header=0)
+    print(taobao_data.head(10))
+    # behavior_type 1:浏览 2:购物车 3:收藏 4:购买
+    """
+    用户买东西
+    （1）浏览
+    （2）加入购物车或者收藏
+    （3）购买
+    了解用户的流失情况
+    不同行为都有多少条
+    """
+    behavior_data = taobao_data[['behavior_type', 'user_id']].groupby('behavior_type').agg('count')
+    print(behavior_data)
+    view = behavior_data.loc[1]['user_id']
+    print(view)
+    cart = behavior_data.loc[2]['user_id']
+    collect = behavior_data.loc[3]['user_id']
+    buy = behavior_data.loc[4]['user_id']
+
+    view_to_car = (cart + collect) / view
+    cat_to_collect = buy / (cart + collect)
+
+    print("从浏览到加入购物车或者收藏的转化率")
+    print(view_to_car)
+    print("从购物车或者收藏到购买的转化率")
+    print(cat_to_collect)
+
+
+def TaBao_pv_count_v4(file):
+    taobao_data = pd.read_csv(file, header=0)
+    print(taobao_data.head(10))
+    # behavior_type 1:浏览 2:购物车 3:收藏 4:购买
+    """
+    # 复购率    重复购买的人数/总人数
+    # 不是一锤子买卖，一个月内用户重复进行了在淘宝的购物
+    
+    # 多少人购买，去重复
+    # 是不是有多少组就有多少用户
+    """
+    total_user = len(taobao_data[taobao_data['behavior_type'] == 4].groupby('user_id')).agg('count')
+
+    # 多少人复购，多少人重复购买东西，购买行为大于1次
+    repeat_user = taobao_data[taobao_data['behavior_type'] == 4][['user_id', 'item_id']].groupby('user_id').agg('count')
+    repeat_user_num = len(repeat_user[repeat_user['item_id'] > 1])
+    print(repeat_user)
+    print(repeat_user_num)
+
+    # 复购率
+    ratio = repeat_user_num / total_user
+    print("复购率 ： " + ratio)
+
 series()
 DDataF_v1()
 DDataF_v2()
 
 file_1 = "/Users/liutao/PycharmProjects/pythonAlgrothmLiu/DateFile/students_complete.csv"
 file_2 = '/Users/liutao/PycharmProjects/pythonAlgrothmLiu/DateFile/热销乘用车销量数据2019.xls'
+file_3 = '/Users/liutao/Downloads/taobao_data.csv'
 # DDataF_readCsv_v1(file_1)
 # DDataF_readExecl_v1(file_2)
 # DDataF_readExecl_v2(file_2)
@@ -172,4 +264,9 @@ file_2 = '/Users/liutao/PycharmProjects/pythonAlgrothmLiu/DateFile/热销乘用�
 # total_v1(file_1)
 # exercise_v1(file_2)
 # groupBy_count_v1()
-export_exercise_v1(file_1)
+# export_exercise_v1(file_1)
+# Data_filtrate_sort_v1()
+# TaBao_pv_count_v1(file_3)
+# TaBao_pv_count_v2(file_3)
+# TaBao_pv_count_v3(file_3)
+TaBao_pv_count_v4(file_3)
