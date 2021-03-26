@@ -237,17 +237,18 @@ def TaBao_pv_count_v4(file):
     # 多少人购买，去重复
     # 是不是有多少组就有多少用户
     """
-    total_user = len(taobao_data[taobao_data['behavior_type'] == 4].groupby('user_id')).agg('count')
-
+    total_user = len(taobao_data[taobao_data['behavior_type'] == 4].groupby('user_id'))
+    print("total_user=" + str(total_user))
     # 多少人复购，多少人重复购买东西，购买行为大于1次
     repeat_user = taobao_data[taobao_data['behavior_type'] == 4][['user_id', 'item_id']].groupby('user_id').agg('count')
     repeat_user_num = len(repeat_user[repeat_user['item_id'] > 1])
-    print(repeat_user)
-    print(repeat_user_num)
+    print("repeat_user=" + str(repeat_user))
+    print("repeat_user_num=" + str(repeat_user_num))
 
     # 复购率
     ratio = repeat_user_num / total_user
-    print("复购率 ： " + ratio)
+    print("复购率 ： " + str(ratio))
+
 
 series()
 DDataF_v1()
