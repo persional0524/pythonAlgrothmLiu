@@ -19,5 +19,13 @@ def twosum_v1(arr, target):
     return []
 
 
+def twoSum_v2(nums, target):
+    hashtable = dict()
+    for i, num in enumerate(nums):
+        if target - num in hashtable:
+            return [hashtable[target - num], i]
+        hashtable[nums[i]] = i
+    return []
+
 my_list = ([2, 15, 11, 7])
 print(twosum_v1(my_list, 9))
