@@ -21,7 +21,7 @@ def insert_Sort_v1(arr=[]):
             arr[j] = arr[i]
             # 继续往前寻找。如果有比临时变量值大的数字，则需要后移一位，直到找到比临时变量小的元素或者达到列表的第一个元素
             j = j - 1
-            while j >= 0 and arr[j] > arr[i]:
+            while j >= 0 and arr[j] > tmp:
                 arr[j + 1] = arr[j]
                 j = j - 1
             # 将临时变量赋值给合适的位置
@@ -40,5 +40,5 @@ def insert_Sort_v2(arr=[]):
 
 mylist = list([4, 4, 6, 5, 3, 2, 8, 1, 7, 5, 6, 0, 10, 11, 23])
 
-insert_Sort_v2(mylist)
+insert_Sort_v1(mylist)
 print(mylist)
