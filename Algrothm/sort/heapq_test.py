@@ -10,16 +10,21 @@
 2021/4/8 12:29 下午   Lita       1.0         None
 """
 
-
 import heapq
 
+li = [9, 5, 7, 8, 2, 6, 4, 1, 3]
 
-li = [9,5,7,8,2,6,4,1,2]
 # create heap
 heapq.heapify(li)
 print(li)
+
 #  heap add element
-heapq.heappush()
+#  heapq.heappush()
 #  heap add element
 #  优先队列：一些元素的集合，pop操作每次执行都会从优先队列中弹出最大或者最小元素
-heapq.heappop()
+#  heapq.heappop()
+
+# 大顶堆,top-k
+print(heapq.nlargest(5, li))
+# 小顶堆,top-k
+print(heapq.nsmallest(5, li))

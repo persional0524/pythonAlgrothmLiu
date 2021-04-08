@@ -40,9 +40,13 @@ def twoSum_v2(nums, target):
     start -- 下标起始位置。
     """
     for i, num in enumerate(nums):
+        print(i, num)
         if target - num in hashtable:
             return [hashtable[target - num], i]
         hashtable[nums[i]] = i
+        print("###")
+        print(hashtable[nums[i]])
+        print("---")
     return []
 
 """
