@@ -18,6 +18,16 @@ def twosum_v1(arr, target):
                 return [i, j]
     return []
 
+"""
+复杂度分析
+
+时间复杂度：O(N^2)
+其中 N是数组中的元素数量。最坏情况下数组中任意两个数都要被匹配一次。
+
+空间复杂度：O(1)。
+
+"""
+
 
 def twoSum_v2(nums, target):
     hashtable = dict()
@@ -35,5 +45,16 @@ def twoSum_v2(nums, target):
         hashtable[nums[i]] = i
     return []
 
+"""
+复杂度分析
+
+时间复杂度：O(N)，其中 NN 是数组中的元素数量。对于每一个元素 x，我们可以 O(1) 地寻找 target - x。
+
+空间复杂度：O(N)，其中 NN 是数组中的元素数量。主要为哈希表的开销。
+
+"""
+
+
 my_list = ([2, 15, 11, 7])
-print(twosum_v1(my_list, 9))
+# print(twosum_v1(my_list, 9))
+print(twoSum_v2(my_list, 9))
