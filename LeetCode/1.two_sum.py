@@ -21,6 +21,14 @@ def twosum_v1(arr, target):
 
 def twoSum_v2(nums, target):
     hashtable = dict()
+    # enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+    # Python 2.3. 以上版本可用，2.6 添加 start 参数。
+
+    """
+    参数
+    sequence -- 一个序列、迭代器或其他支持迭代对象。
+    start -- 下标起始位置。
+    """
     for i, num in enumerate(nums):
         if target - num in hashtable:
             return [hashtable[target - num], i]
