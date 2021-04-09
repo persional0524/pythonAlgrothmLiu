@@ -13,10 +13,37 @@
 """
   [2,5,7,8,9]|[1,3,4,6] --> [1, 2, 3, 4, 5, 6, 7, 8, 9]
   1、两个有序的列表合成一个有序的列表。--一次归并
+  2、有了归并怎么用？
 
-
+  top:
+        归并是先递归(merge_sort)，再执行的merge(一次归并)。
+        快排是先执行mid(中间值)，再执行的递归(quick_sort)。
+        
+        先递归后打印，从小到大
+        先打印后递归，从大到小
 
 """
+
+
+# o(n)
+def merge2list(li1, li2):
+    i = 0
+    j = 0
+    li = []
+    while i < len(li1) and j < len(li2):
+        if li1[i] <= li2[j]:
+            li.append(li1[i])
+            i += 1
+        else:
+            li.append(li2[j])
+            j += 1
+    while i < len(li1):
+        li.append(li1[i])
+        i += 1
+    while j < len(li2):
+        li.append(li2[j])
+        j += 1
+    return li
 
 
 def merge(li, low, mid, high):  # 一次归并，面试必问(前提，都有序)
@@ -34,7 +61,7 @@ def merge(li, low, mid, high):  # 一次归并，面试必问(前提，都有序
     while i <= mid:
         li_tmp.append(li[i])
         i += 1
-    while j <= mid:
+    while j <= high:
         li_tmp.append(li[j])
         j += 1
     # 左闭右开
@@ -50,6 +77,29 @@ def merge(li, low, mid, high):  # 一次归并，面试必问(前提，都有序
     # li[low:high+1] = li_tmp
 
 
-li = [2, 5, 7, 8, 9, 1, 3, 4, 6]
-merge(li, 0, 4, 8)
-print(li)
+def merge_sort(li, low, high):  # merge_sort：排序li的low到high的分为
+    # if 长度 <2 什么都不做，长度< high 才开始做事情
+    # low = high 一个元素，low > high 0个元素
+    if low < high:
+        mid = (low + high) // 2  # 分解 大-小 进去
+        # print(li[low:mid+1],li[mid+1:high+1])
+        # 递归 调用 merge_sort
+        merge_sort(li, low, mid)
+        merge_sort(li, mid + 1, high)
+        print(li[low:mid + 1], li[mid + 1:high + 1])
+        merge(li, low, mid, high)  # 合并 小-大 出来
+        print("合并-排序="+str(li[low:high + 1]))
+
+
+# li1 = [2, 5, 7, 8, 9]
+# li2 = [1, 3, 4, 6]
+# print(merge2list(li1, li2))
+#
+# li = [2, 5, 7, 8, 9, 1, 3, 4, 6]
+# merge(li, 0, 4, 8)
+# print(li)
+# print("#" * 30)
+
+arr = [10, 4, 6, 3, 8, 2, 5, 7]
+merge_sort(arr, 0, len(arr) - 1)
+print(arr)
