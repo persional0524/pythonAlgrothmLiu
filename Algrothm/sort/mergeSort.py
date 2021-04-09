@@ -14,13 +14,15 @@
   [2,5,7,8,9]|[1,3,4,6] --> [1, 2, 3, 4, 5, 6, 7, 8, 9]
   1、两个有序的列表合成一个有序的列表。--一次归并
   2、有了归并怎么用？
-
+    时间复杂度：o(nlogn)
+    空间复杂度：o(n)，开新列表了
   top:
         归并是先递归(merge_sort)，再执行的merge(一次归并)。
         快排是先执行mid(中间值)，再执行的递归(quick_sort)。
         
         先递归后打印，从小到大
         先打印后递归，从大到小
+        排左边，排右边，合并一个列表
 
 """
 
@@ -46,6 +48,7 @@ def merge2list(li1, li2):
     return li
 
 
+# o(n)
 def merge(li, low, mid, high):  # 一次归并，面试必问(前提，都有序)
     # 列表有两段有序：[low,mid] [mid + 1,high],已排序
     i = low
@@ -77,6 +80,7 @@ def merge(li, low, mid, high):  # 一次归并，面试必问(前提，都有序
     # li[low:high+1] = li_tmp
 
 
+# o(logn)
 def merge_sort(li, low, high):  # merge_sort：排序li的low到high的分为
     # if 长度 <2 什么都不做，长度< high 才开始做事情
     # low = high 一个元素，low > high 0个元素
@@ -88,7 +92,7 @@ def merge_sort(li, low, high):  # merge_sort：排序li的low到high的分为
         merge_sort(li, mid + 1, high)
         print(li[low:mid + 1], li[mid + 1:high + 1])
         merge(li, low, mid, high)  # 合并 小-大 出来
-        print("合并-排序="+str(li[low:high + 1]))
+        print("合并-排序=" + str(li[low:high + 1]))
 
 
 # li1 = [2, 5, 7, 8, 9]
