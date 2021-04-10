@@ -49,7 +49,7 @@ def partition_v1(start_v, end_v, arr=[]):
 def partition_v2(start_v, end_v, arr=[]):
     pivot = arr[start_v]
     marks = start_v
-    for i in range(start_v + 1, len(arr)):
+    for i in range(start_v + 1, end_v + 1):
         if arr[i] < pivot:
             marks += 1
             tmp = arr[marks]
