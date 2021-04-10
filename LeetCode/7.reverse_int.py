@@ -50,6 +50,7 @@ def reverse_int_v1(num):
         print(" " + str(res))
         num = num // 10
         print("  " + str(num))
+
     return res
 
 
