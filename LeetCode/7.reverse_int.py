@@ -54,13 +54,32 @@ def reverse_int_v1(num):
     return res
 
 
+"""
+ 1 str = '0123456789'  #str[start:stop:step]   遵循【左闭右开】规则
+ 2 
+ 3 print(str[0:3])     #截取第一位到第三位的字符                 　　　　　　　　　　#012
+ 4 print(str[1:5])     #截取第二位到第六位之前的字符              　　　　　　　　　　#1234
+ 5 print(str[:])       #截取字符串的全部字符                     　　　　　　　　   #0123456789
+ 6 print(str[6:])      #截取第七个字符到结尾                     　　　　　　　   　#6789
+ 7 print(str[:-3])     #截取从头开始到倒数第三个字符之前           　　　　　　　   　#0123456
+ 8 print(str[2])       #截取第三个字符                           　　　　　　      #2
+ 9 print(str[-1])      #截取倒数第一个字符                    　　　　　　　　      #9
+10 print(str[::-1])    #创造一个与原字符串顺序相反的字符串        　　　　　　　  　  #9876543210
+11 print(str[-3:-1])   #截取倒数第三位与倒数第一位之前的字符       　　　　　　　 　  #78
+12 print(str[-3:])     #截取倒数第三位到结尾                    　　　　　　　   　 #789
+13 print(str[:-5:-3])  #逆序截取，步长为3                     　　　　　　　　　　  #96
+14 print(str[9:0:-1])  #逆序截取，起始值为列表的第10为数，到列表第1位数之前的数结束，　　#987654321
+15 print(str[0:12])    #截取全部元素
+"""
+
+
 def reverse_int_v2(x):
     if -10 < x < 10:
         return x
     str_x = str(x)
     print(str_x)
     # if 正数
-    if str_x[0] != "-":
+    if str_x[0] != '-':
         # 切片，字符串倒序输出
         str_x = str_x[::-1]
         print(str_x)
@@ -87,4 +106,4 @@ def reverse_int_v3(x):
     return res if x > 0 else -res
 
 
-print(reverse_int_v3(-12300))
+print(reverse_int_v2(-12300))
