@@ -36,7 +36,7 @@ def count_sort_v2(arr=[]):
     # 1.得到数列最大值最小值，并算出差值d
     max_v = arr[0]
     min_v = arr[0]
-    for i in range(len(arr) - 1):
+    for i in range(1, len(arr)):
         if arr[i] > max_v:
             max_v = arr[i]
             print("max_v=" + str(max_v))
@@ -65,6 +65,6 @@ def count_sort_v2(arr=[]):
 mylist = list([95, 94, 91, 98, 99, 90, 99, 93, 91, 92])
 
 # count_sort_v1(mylist)
-#count_sort_v2(mylist)
+# count_sort_v2(mylist)
 # print(count_sort_v1(mylist))
 print(count_sort_v2(mylist))
