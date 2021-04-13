@@ -66,5 +66,5 @@ mylist = list([95, 94, 91, 98, 99, 90, 99, 93, 91, 92])
 
 # count_sort_v1(mylist)
 # count_sort_v2(mylist)
-print(count_sort_v1(mylist))
-# print(count_sort_v2(mylist))
+# print(count_sort_v1(mylist))
+print(count_sort_v2(mylist))
