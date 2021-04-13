@@ -20,5 +20,7 @@ def two_sum_2(nums, target):
     return []
 
 
+
+
 nums = list([2, 3, 4, 5, 6, 7])
 print(two_sum_2(nums, 6))
