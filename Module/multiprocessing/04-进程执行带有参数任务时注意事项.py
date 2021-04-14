@@ -9,21 +9,9 @@
 ------------      -------    --------    -----------
 2021/4/14 4:50 下午   Lita       1.0         None
 """
-# !/usr/bin/python3
-# -*- encoding: utf-8 -*-
-import os
-
-"""
-@File    :   03-进程执行带有参数的任务.py    
-@Contact :   liutao0705@live.com
-@License :   (C)Copyright 2021-2022
-
-@Modify Time      @Author    @Version    @Desciption
-------------      -------    --------    -----------
-2021/4/14 4:50 下午   Lita       1.0         None
-"""
 # 1、 导入进程包
 import multiprocessing as mp
+import os
 import time
 
 

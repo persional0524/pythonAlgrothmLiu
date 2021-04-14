@@ -1,7 +1,7 @@
 # !/usr/bin/python3
 # -*- encoding: utf-8 -*-
 """
-@File    :   11-主线程和子线程的结束顺序】.py    
+@File    :   11-主线程和子线程的结束顺序.py
 @Contact :   liutao0705@live.com
 @License :   (C)Copyright 2021-2022
 
