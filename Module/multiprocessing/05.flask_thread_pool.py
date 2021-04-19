@@ -11,11 +11,14 @@
 """
 import json
 import time
+from concurrent.futures import ThreadPoolExecutor
 
 import flask
 
 # name 为当前文件名称
 app = flask.Flask(__name__)
+# 初始化一个全局线程池
+pool = ThreadPoolExecutor()
 
 
 def read_file():
@@ -36,14 +39,22 @@ def read_api():
 # @ 定义连接
 @app.route("/")
 def index():
-    result_file = read_file()
-    result_db = read_db()
-    result_api = read_api()
-
+    # result_file = read_file()
+    # result_db = read_db()
+    # result_api = read_api()
+    # return json.dumps({
+    #     "result_file": result_file,
+    #     "result_db": result_db,
+    #     "result_api": result_api,
+    # })
+    result_file = pool.submit(read_file)
+    result_db = pool.submit(read_db)
+    result_api = pool.submit(read_api)
+    # future 对象 -->  .result()
     return json.dumps({
-        "result_file": result_file,
-        "result_db": result_db,
-        "result_api": result_api,
+        "result_file": result_file.result(),
+        "result_db": result_db.result(),
+        "result_api": result_api.result(),
     })
 
 
