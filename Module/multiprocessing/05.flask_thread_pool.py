@@ -36,7 +36,7 @@ def read_api():
     return "api result"
 
 
-# @ 定义连接
+# @ 定义连接,接口
 @app.route("/")
 def index():
     # result_file = read_file()
