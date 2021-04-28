@@ -16,6 +16,7 @@ def twosum_v1(arr, target):
         for j in range(i + 1, len(arr)):
             if target == arr[i] + arr[j]:
                 return [i, j]
+                # return [i+1, j+1]
     return []
 
 
@@ -61,5 +62,5 @@ def twoSum_v2(nums, target):
 """
 
 my_list = ([2, 15, 11, 7])
-# print(twosum_v1(my_list, 9))
+print(twosum_v1(my_list, 9))
 print(twoSum_v2(my_list, 9))
