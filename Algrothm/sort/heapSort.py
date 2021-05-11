@@ -32,11 +32,12 @@ sift -> logn
 
 """
 
+
 # logn 从上往下走～,向下调整，节点的左右子树都是堆，但自身不是堆
 # **当根节点的左右子树都是堆时，可以通过一次向下调整来将其变成一个堆。
 def sift(li, low, high):
     # li表示树，low表示树根， high表示最后一个节点的位置
-    tmp = li[low] # 树根存起来
+    tmp = li[low]  # 树根存起来
     i = low
     j = 2 * i + 1  # 初始j指向空位的左孩子
     # i 指向空位，j指向两个孩子
@@ -53,6 +54,15 @@ def sift(li, low, high):
     li[i] = tmp
 
 
+"""
+1. 建立堆
+2. 得到堆顶元素、为最大元素
+3. 去掉堆顶，将堆最后一个元素放到堆顶，此时可以通过一次调整，重新使堆有序。
+4. 堆顶元素为第二大元素。
+5. 重复步骤三，直到堆变空。
+"""
+
+
 def heap_sort(li):
     n = len(li)
     # 1. 构造堆  range=前包后不包,步长-1，后不包-1，其实是0
@@ -64,7 +74,6 @@ def heap_sort(li):
     for high in range(n - 1, -1, -1):
         li[0], li[high] = li[high], li[0]  # 退休，棋子
         sift(li, 0, high - 1)
-
 
 
 li = list(range(10))
