@@ -9,6 +9,7 @@
 ------------      -------    --------    -----------
 2021/4/7 10:00 下午   Lita       1.0         None
 """
+import random
 
 """
 优先队列
@@ -29,7 +30,8 @@ sift -> logn
 
 """
 
-
+# logn 从上往下走～,向下调整，节点的左右子树都是堆，但自身不是堆
+# **当根节点的左右子树都是堆时，可以通过一次向下调整来将其变成一个堆。
 def sift(li, low, high):
     # li表示树，low表示树根， high表示最后一个节点的位置
     tmp = li[low]
@@ -51,14 +53,18 @@ def sift(li, low, high):
 
 def heap_sort(li):
     n = len(li)
-    # 1. 构造堆  range=前包后不包
+    # 1. 构造堆  range=前包后不包,步长-1，后不包-1，其实是0
     for low in range(n // 2 - 1, -1, -1):
         sift(li, low, n - 1)
+    print(li)
     # 2. 挨个出数
     for high in range(n - 1, -1, -1):
         li[0], li[high] = li[high], li[0]  # 退休，棋子
         sift(li, 0, high - 1)
 
 
-li = list(range(100))
-
+li = list(range(10))
+random.shuffle(li)
+print(li)
+heap_sort(li)
+print(li)
