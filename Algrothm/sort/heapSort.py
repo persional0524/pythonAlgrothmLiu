@@ -42,13 +42,13 @@ def sift(li, low, high):
         # 如果右孩子存在，且比左孩子大，指向右孩子
         if j + 1 <= high and li[j] < li[j + 1]:
             j = j + 1
-        if li[i] > tmp:
+        if li[j] > tmp:
             li[i] = li[j]
             i = j
             j = 2 * i + 1
         else:  # 循环推出的第一种情况：j的位置比tmp小，说明两个孩子都比tmp小
             break
-        li[i] = tmp
+    li[i] = tmp
 
 
 def heap_sort(li):
@@ -61,6 +61,7 @@ def heap_sort(li):
     for high in range(n - 1, -1, -1):
         li[0], li[high] = li[high], li[0]  # 退休，棋子
         sift(li, 0, high - 1)
+
 
 
 li = list(range(10))
