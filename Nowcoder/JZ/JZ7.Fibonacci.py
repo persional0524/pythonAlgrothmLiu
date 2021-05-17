@@ -32,22 +32,41 @@ class Solution:
     """
     时间复杂度，2n---> o(n)
     """
+
     def Fibonacci_v2(self, n):
         if n == 0:
             return 0
         if n == 1:
             return 1
-        a = 1 # a 代表大数
+        a = 1  # a 代表大数
         b = 0
         # n=4,循环3次
         for i in range(0, n - 1):
+            # print("i="+str(i))
             cnt = a + b
+            # print("cnt="+str(cnt))
             b = a
             a = cnt
         return cnt
+
+    def Fibonacci_v3(self, n):
+        res = [0, 1]
+        i = 2
+        while i <= n:
+            res.append(res[i - 1] + res[i - 2])
+            i = i + 1
+        return res[n]
+
+    def Fibonacci_v4(self, n):
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = b, a + b
+        return a % 1000000007
 
 
 if __name__ == '__main__':
     s = Solution()
     print(s.Fibonacci_v1(4))
     print(s.Fibonacci_v2(10))
+    print(s.Fibonacci_v3(10))
+    print(s.Fibonacci_v4(10))
