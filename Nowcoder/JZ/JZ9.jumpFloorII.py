@@ -11,11 +11,28 @@
 """
 
 
-def jumpFloorII_v1(self, number):
-    # write code here
-    if number <= 2:
-        return number
-    res = [1, 2]
-    for i in range(2, number):
-        res.append(res[-1] * 2)
-    return res[-1]
+class Solution:
+    def jumpFloorII_v1(self, number):
+        # write code here
+        if number <= 2:
+            return number
+        res = [1, 2]
+        for i in range(2, number):
+            res.append(res[-1] * 2)
+        return res[-1]
+
+    def jumpFloorII_v2(self, number):
+        if number <= 1:
+            return 1
+        cnt = 1
+        a = 1
+        for i in range(2, number + 1):
+            cnt = 2 * a
+            a = cnt
+        return cnt
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.jumpFloorII_v1(10))
+    print(s.jumpFloorII_v2(10))

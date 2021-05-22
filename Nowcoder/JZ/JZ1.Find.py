@@ -58,6 +58,22 @@ class Solution:
                 i += 1
         return False
 
+    def Find_v5(self, target, matrix):
+        n = len(matrix)
+        if n <= 0:
+            return False
+        m = len(matrix[0])
+        i, j = 0, m - 1
+        while i < n and j >= 0:
+            value = matrix[i][j]
+            if target == value:
+                return True
+            elif target > value:
+                i += 1
+            else:
+                j -= 1
+        return False
+
 
 if __name__ == '__main__':
     s = Solution()
@@ -65,3 +81,4 @@ if __name__ == '__main__':
     print(s.Find_v2(3, [[1, 2, 8, 9], [2, 4, 9, 12], [4, 7, 10, 13], [6, 8, 11, 15]]))
     print(s.Find_v3(3, [[1, 2, 8, 9], [2, 4, 9, 12], [4, 7, 10, 13], [6, 8, 11, 15]]))
     print(s.Find_v4(3, [[1, 2, 8, 9], [2, 4, 9, 12], [4, 7, 10, 13], [6, 8, 11, 15]]))
+    print(s.Find_v5(3, [[1, 2, 8, 9], [2, 4, 9, 12], [4, 7, 10, 13], [6, 8, 11, 15]]))
