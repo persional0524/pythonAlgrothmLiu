@@ -25,6 +25,7 @@ NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。
 
 """
 
+
 # a = 10 # 1010
 # for i in range(100):
 #     print(i)
@@ -41,7 +42,7 @@ def bin_m(n):
 
 print(bin_m(2222))
 print(bin_m(-2222))
-print("*"*50)
+print("*" * 50)
 print('逻辑运算')
 
 """
@@ -54,3 +55,38 @@ print('逻辑运算')
 两个值相或，如果第一个值为真，那么返回第一个值；如果第一值为假，那么返回第二个值
 
 """
+print("*" * 50)
+
+
+class Solution:
+    def minArray_v1(self, numbers):
+        # binary search
+        if len(numbers) <= 0:
+            return None
+        left, right = 0, len(numbers) - 1
+        while left < right:
+            mid = (left + right) >> 1
+            if numbers[mid] < numbers[right]:
+                right = mid
+            elif numbers[mid] > numbers[right]:
+                left = mid + 1
+            else:
+                left -= 1
+        return numbers[left]
+
+    def minArray_v2(self, numbers):
+        # 暴力法
+        if len(numbers) <= 0:
+            return None
+        min_v = numbers[0]
+        for i in numbers:
+            if i < min_v:
+                min_v = i
+                break
+        return min_v
+
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.minArray_v1([3, 4, 5, 1, 2]))
+    print(s.minArray_v2([3, 4, 5, 1, 2]))
