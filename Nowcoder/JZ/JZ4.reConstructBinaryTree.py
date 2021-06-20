@@ -28,4 +28,21 @@ class Solution:
     # 返回构造的TreeNode根节点
     def reConstructBinaryTree(self, pre, tin):
         # write code here
-        pass
+        if not pre and not tin:
+            return None
+        if len(pre) != len(tin):
+            return None
+
+        # 取出pre的值
+        root = pre[0]
+        rootNode = TreeNode(root)
+
+        pos = tin.index(root)
+        tinLeft = tin[:pos]
+        tinRight = tin[pos+1:]
+
+        preLeft = pre[:pos]
+
+
+
+

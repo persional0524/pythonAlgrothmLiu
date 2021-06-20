@@ -10,6 +10,8 @@
 2021/6/2 11:10 上午   Lita       1.0         None
 """
 
+# 接口作用，
+
 from abc import ABCMeta, abstractmethod
 
 
@@ -48,3 +50,5 @@ class Teacher(User):
 # u = User  # User 对象是啥，啥也不是，防止这样，把User搞成抽象类，要么是Student类，要么是Teacher类
 
 u = Student
+
+# 函数签名：函数名，参数个数和类型

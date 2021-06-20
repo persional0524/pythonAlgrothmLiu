@@ -12,23 +12,23 @@
 
 
 def shell_sort(li):
-    d = len(li) // 2
+    d = len(li)// 2
     while d > 0:
-        insert_sort_gqp(li, d)
-        d = d // 2
+        insertsort(li, d)
+        d //= 2
 
 
-def insert_sort_gqp(li, d):
+def insertsort(li, d):
     for i in range(1, len(li)):
         j = i - d
         key = li[i]
-        while j >= 0 and li[j] > key:
+        while j >= 0 and key < li[j]:
             li[j + d] = li[j]
-            j = j - d
+            j -= d
         li[j + d] = key
 
 
 mylist = list([16, 25, 39, 27, 12, 8, 45, 63])
-
+print(mylist)
 shell_sort(mylist)
 print(mylist)

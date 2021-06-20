@@ -62,9 +62,21 @@ def count_sort_v2(arr=[]):
     return sort_arr
 
 
+def count_sort_v3(arr=[], max_num=100):
+    cout_list = [0 for _ in range(max_num + 1)]
+    for val in arr:
+        cout_list[val] += 1
+    arr.clear()
+    for i, v in enumerate(cout_list):
+        for _ in range(v):
+            arr.append(i)
+    return arr
+
+
 mylist = list([95, 94, 91, 98, 99, 90, 99, 93, 91, 92])
 
 # count_sort_v1(mylist)
 # count_sort_v2(mylist)
 # print(count_sort_v1(mylist))
 print(count_sort_v2(mylist))
+print(count_sort_v3(mylist))
