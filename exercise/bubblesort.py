@@ -8,6 +8,7 @@
 @Modify Time      @Author    @Version    @Desciption
 ------------      -------    --------    -----------
 2021/5/22 9:45 上午   Lita       1.0         None
+now fight
 """
 import random
 
